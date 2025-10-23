@@ -516,7 +516,7 @@ const Portfolio3DHomepage = () => {
             Pronto a Dare Vita alle Tue Idee?
           </h2>
           <p className="text-lg md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl md:max-w-3xl mx-auto">
-            Trasformiamo insieme il tuo progetto in visualizzazioni straordinarie che catturano l&#39;attenzione e comunicano valore.
+            Trasformiamo insieme il tuo progetto in visualizzazioni straordinarie che catturano l&apos;attenzione e comunicano valore.
           </p>
           <div className="flex flex-col gap-3 md:gap-4 justify-center items-center">
             <button 
