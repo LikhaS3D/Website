@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -21,7 +21,7 @@ const portfolioProjects = [
   { id: 6, title: 'Spazi Commerciali 06' },
   { id: 7, title: 'Arredamento Moderno 07' },
   { id: 8, title: 'Progetto Residenziale 08' },
-  { id: 9, title: 'Design d\'Interni 09' },
+  { id: 9, title: 'Design d&apos;Interni 09' },
   { id: 10, title: 'Ristrutturazione 3D 10' },
   { id: 11, title: 'Furniture Rendering 11' },
   { id: 12, title: 'Visualizzazione Prodotto 12' },
@@ -45,12 +45,7 @@ const portfolioProjects = [
   { id: 30, title: 'Concept Architettonico 30' },
 ];
 
-interface PortfolioItem {
-  id: number;
-  title: string;
-}
-
-const PortfolioGallery: React.FC = () => {
+const PortfolioGallery = () => {
   const [screenType, setScreenType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
   const [scrolled, setScrolled] = useState(false);
 
@@ -77,7 +72,7 @@ const PortfolioGallery: React.FC = () => {
   }, []);
 
   // Configurazione del layout a mosaico per diverse risoluzioni
-  const getMosaicLayout = () => {
+  const getMosaicLayout = useCallback(() => {
     const layouts: Record<'mobile' | 'tablet' | 'desktop', { images: number; cols: number; config: Array<{ width: number; height: number }> }> = {
       desktop: {
         images: 30,
@@ -121,9 +116,9 @@ const PortfolioGallery: React.FC = () => {
     };
 
     return layouts[screenType];
-  };
+  }, [screenType]);
 
-  const currentLayout = useMemo(() => getMosaicLayout(), [screenType]);
+  const currentLayout = useMemo(() => getMosaicLayout(), [getMosaicLayout]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
@@ -234,11 +229,6 @@ const PortfolioGallery: React.FC = () => {
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       priority={index < 6}
-                      onError={(e) => {
-                        // Se l'immagine non carica, mostra uno sfondo grigio con il numero
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                      }}
                     />
                     {/* Overlay scuro al caricamento */}
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500" />
