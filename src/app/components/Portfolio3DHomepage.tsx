@@ -540,199 +540,199 @@ const Portfolio3DHomepage = () => {
         </div>
       </section>
 
-      {/* Contact Modal */}
-      {isContactOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsContactOpen(false)}
-          />
-          <div className="relative bg-white rounded-lg shadow-2xl w-full max-w-lg z-10">
-            <div className="flex items-center justify-between p-6 md:p-8 border-b border-gray-200">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Contact Sales</h2>
-              <button
-                onClick={() => setIsContactOpen(false)}
-                className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <X className="h-6 w-6 text-gray-600" />
-              </button>
-            </div>
-            
-            <div className="p-6 md:p-8">
-              {submitStatus === 'success' && (
-                <div className="flex items-center space-x-3 bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-                  <CheckCircle2 className="h-5 w-5 text-green-600" />
-                  <div>
-                    <p className="font-medium text-green-900">Email inviata con successo!</p>
-                    <p className="text-sm text-green-700">Ti contatterò presto.</p>
-                  </div>
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="flex items-center space-x-3 bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-                  <AlertCircle className="h-5 w-5 text-red-600" />
-                  <div>
-                    <p className="font-medium text-red-900">Errore nell'invio</p>
-                    <p className="text-sm text-red-700">Riprova più tardi.</p>
-                  </div>
-                </div>
-              )}
-
-              {submitStatus !== 'success' && (
-                <>
-                  <p className="text-gray-600 mb-6 text-sm md:text-base">
-                    Let's get this conversation started. Tell us a bit about yourself, and we'll get in touch as soon as we can.
-                  </p>
-                  
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">First name</label>
-                        <input
-                          type="text"
-                          name="firstName"
-                          value={formData.firstName}
-                          onChange={handleFormChange}
-                          disabled={isSubmitting}
-                          required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all disabled:bg-gray-100"
-                          placeholder="John"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Last name</label>
-                        <input
-                          type="text"
-                          name="lastName"
-                          value={formData.lastName}
-                          onChange={handleFormChange}
-                          disabled={isSubmitting}
-                          required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all disabled:bg-gray-100"
-                          placeholder="Doe"
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Work Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleFormChange}
-                        disabled={isSubmitting}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all disabled:bg-gray-100 text-gray-900 placeholder-gray-500"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleFormChange}
-                        disabled={isSubmitting}
-                        required
-                        rows={4}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none disabled:bg-gray-100 text-gray-900 placeholder-gray-500"
-                        placeholder="Tell us about your project..."
-                      />
-                    </div>
-                    
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-3 text-white font-medium rounded-lg transition-all hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                      style={{
-                        background: `linear-gradient(135deg, ${brandColors.primary} 0%, ${brandColors.accent} 100%)`
-                      }}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2"></div>
-                          Invio in corso...
-                        </>
-                      ) : (
-                        'Contact Sales'
-                      )}
-                    </button>
-                  </form>
-                </>
-              )}
+{/* Contact Modal */}
+{isContactOpen && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div 
+      className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+      onClick={() => setIsContactOpen(false)}
+    />
+    <div className="relative bg-white rounded-lg shadow-2xl w-full max-w-lg z-10">
+      <div className="flex items-center justify-between p-6 md:p-8 border-b border-gray-200">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Contact Sales</h2>
+        <button
+          onClick={() => setIsContactOpen(false)}
+          className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+        >
+          <X className="h-6 w-6 text-gray-600" />
+        </button>
+      </div>
+      
+      <div className="p-6 md:p-8">
+        {submitStatus === 'success' && (
+          <div className="flex items-center space-x-3 bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+            <CheckCircle2 className="h-5 w-5 text-green-600" />
+            <div>
+              <p className="font-medium text-green-900">Email inviata con successo!</p>
+              <p className="text-sm text-green-700">Ti contatterò presto.</p>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12 md:py-16 border-t border-gray-700 z-10 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+        {submitStatus === 'error' && (
+          <div className="flex items-center space-x-3 bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+            <AlertCircle className="h-5 w-5 text-red-600" />
             <div>
-              <div className="flex items-center space-x-2 mb-3 md:mb-4">
-                <div
-                  className="w-28 md:w-32 h-10 md:h-12 bg-contain bg-no-repeat bg-center"
-                  style={{ backgroundImage: "url('/images/logo.png')" }}
+              <p className="font-medium text-red-900">Errore nell&apos;invio</p>
+              <p className="text-sm text-red-700">Riprova più tardi.</p>
+            </div>
+          </div>
+        )}
+
+        {submitStatus !== 'success' && (
+          <>
+            <p className="text-gray-600 mb-6 text-sm md:text-base">
+              Let&apos;s get this conversation started. Tell us a bit about yourself, and we&apos;ll get in touch as soon as we can.
+            </p>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">First name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleFormChange}
+                    disabled={isSubmitting}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all disabled:bg-gray-100 text-gray-900"
+                    placeholder="John"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Last name</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleFormChange}
+                    disabled={isSubmitting}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all disabled:bg-gray-100 text-gray-900"
+                    placeholder="Doe"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Work Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  disabled={isSubmitting}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all disabled:bg-gray-100 text-gray-900 placeholder-gray-500"
+                  placeholder="john@example.com"
                 />
               </div>
-              <p className="text-gray-400 text-xs md:text-sm">
-                Eccellenza nel design 3D e rendering fotorealistico per progetti innovativi.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3 md:mb-4 text-white text-sm md:text-base">Servizi</h3>
-              <ul className="space-y-1.5 md:space-y-2">
-                {['Modellazione 3D', 'Rendering', 'Animazione', 'Consulenza'].map((service) => (
-                  <li key={service}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3 md:mb-4 text-white text-sm md:text-base">Contatti</h3>
-              <ul className="space-y-1.5 md:space-y-2">
-                <li className="flex items-center text-gray-400 text-xs md:text-sm">
-                  <Mail className="h-3.5 w-3.5 md:h-4 md:w-4 mr-1.5 md:mr-2" />
-                  info@likhastudio3d.com
-                </li>
-                <li className="flex items-center text-gray-400 text-xs md:text-sm">
-                  <MapPin className="h-3.5 w-3.5 md:h-4 md:w-4 mr-1.5 md:mr-2" />
-                  Manzano, Italia
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3 md:mb-4 text-white text-sm md:text-base">Seguimi</h3>
-              <div className="flex space-x-3 md:space-x-4">
-                {[
-                  { icon: <Linkedin className="h-4 w-4 md:h-5 md:w-5" />, href: "#" },
-                  { icon: <Instagram className="h-4 w-4 md:h-5 md:w-5" />, href: "#" },
-                  { icon: <Dribbble className="h-4 w-4 md:h-5 md:w-5" />, href: "#" }
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white/10"
-                    aria-label={`Seguimi su ${['LinkedIn', 'Instagram', 'Dribbble'][index]}`}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  disabled={isSubmitting}
+                  required
+                  rows={4}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none disabled:bg-gray-100 text-gray-900 placeholder-gray-500"
+                  placeholder="Tell us about your project..."
+                />
               </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-gray-400 text-xs md:text-sm">
-            <p>© 2025 Likha Studio. Tutti i diritti riservati. | P.IVA: 00000000000</p>
-          </div>
+              
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 text-white font-medium rounded-lg transition-all hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                style={{
+                  background: `linear-gradient(135deg, ${brandColors.primary} 0%, ${brandColors.accent} 100%)`
+                }}
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2"></div>
+                    Invio in corso...
+                  </>
+                ) : (
+                  'Contact Sales'
+                )}
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
+{/* Footer */}
+<footer className="bg-gray-800 text-white py-12 md:py-16 border-t border-gray-700 z-10 relative">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+      <div>
+        <div className="flex items-center space-x-2 mb-3 md:mb-4">
+          <div
+            className="w-28 md:w-32 h-10 md:h-12 bg-contain bg-no-repeat bg-center"
+            style={{ backgroundImage: "url('/images/logo.png')" }}
+          />
         </div>
-      </footer>
+        <p className="text-gray-400 text-xs md:text-sm">
+          Eccellenza nel design 3D e rendering fotorealistico per progetti innovativi.
+        </p>
+      </div>
+      <div>
+        <h3 className="font-semibold mb-3 md:mb-4 text-white text-sm md:text-base">Servizi</h3>
+        <ul className="space-y-1.5 md:space-y-2">
+          {['Modellazione 3D', 'Rendering', 'Animazione', 'Consulenza'].map((service) => (
+            <li key={service}>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm">
+                {service}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 className="font-semibold mb-3 md:mb-4 text-white text-sm md:text-base">Contatti</h3>
+        <ul className="space-y-1.5 md:space-y-2">
+          <li className="flex items-center text-gray-400 text-xs md:text-sm">
+            <Mail className="h-3.5 w-3.5 md:h-4 md:w-4 mr-1.5 md:mr-2" />
+            info@likhastudio3d.com
+          </li>
+          <li className="flex items-center text-gray-400 text-xs md:text-sm">
+            <MapPin className="h-3.5 w-3.5 md:h-4 md:w-4 mr-1.5 md:mr-2" />
+            Manzano, Italia
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 className="font-semibold mb-3 md:mb-4 text-white text-sm md:text-base">Seguimi</h3>
+        <div className="flex space-x-3 md:space-x-4">
+          {[
+            { icon: <Linkedin className="h-4 w-4 md:h-5 md:w-5" />, href: "#" },
+            { icon: <Instagram className="h-4 w-4 md:h-5 md:w-5" />, href: "#" },
+            { icon: <Dribbble className="h-4 w-4 md:h-5 md:w-5" />, href: "#" }
+          ].map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              className="w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white/10"
+              aria-label={`Seguimi su ${['LinkedIn', 'Instagram', 'Dribbble'][index]}`}
+            >
+              {social.icon}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div className="border-t border-gray-700 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-gray-400 text-xs md:text-sm">
+      <p>© 2025 Likha Studio. Tutti i diritti riservati. | P.IVA: 00000000000</p>
+    </div>
+  </div>
+</footer>
     </div>
   );
 };
