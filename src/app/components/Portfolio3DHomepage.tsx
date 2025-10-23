@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Image from 'next/image';
@@ -75,7 +76,7 @@ const Portfolio3DHomepage = () => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % portfolioImages.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [portfolioImages.length]);
+  }, []);
 
   const getBackgroundOpacity = () => {
     if (typeof window === 'undefined' || !servicesRef.current) return 1;
@@ -102,7 +103,7 @@ const Portfolio3DHomepage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const getMosaicLayout = () => {
+  const getMosaicLayout = useCallback(() => {
     const layouts: Record<'mobile' | 'tablet' | 'desktop', { images: number; cols: number; config: Array<{ width: number; height: number }> }> = {
       desktop: {
         images: 10,
@@ -132,9 +133,9 @@ const Portfolio3DHomepage = () => {
     };
 
     return layouts[screenType];
-  };
+  }, [screenType]);
 
-  const currentLayout = useMemo(() => getMosaicLayout(), [screenType]);
+  const currentLayout = useMemo(() => getMosaicLayout(), [getMosaicLayout]);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -147,7 +148,6 @@ const Portfolio3DHomepage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validazione client-side
     if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim() || !formData.message.trim()) {
       setSubmitStatus('error');
       console.error('Errore: Completa tutti i campi');
@@ -164,8 +164,6 @@ const Portfolio3DHomepage = () => {
         email: formData.email.trim(),
         message: formData.message.trim(),
       };
-
-      console.log('Dati inviati:', dataToSend);
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -536,7 +534,7 @@ const Portfolio3DHomepage = () => {
             </div>
             <div className="flex items-center space-x-2 text-white/80 text-sm md:text-base">
               <Star className="h-4 w-4 md:h-5 md:w-5 text-yellow-400" />
-              <span>5★ Valutazione Clienti</span>
+              <span>5 Valutazione Clienti</span>
             </div>
           </div>
         </div>
