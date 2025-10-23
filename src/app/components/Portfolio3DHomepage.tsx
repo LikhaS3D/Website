@@ -14,7 +14,6 @@ import {
   Shield,
   CheckCircle,
   Mail,
-  Phone,
   MapPin,
   Linkedin,
   Instagram,
